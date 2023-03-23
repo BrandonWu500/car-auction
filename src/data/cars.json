@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "CP 5000",
+    "startingPrice": 120000,
+    "attribution": "\"Cyberpunk car\" (https://skfb.ly/6QUAI) by 4d_Bob is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/)."
+  },
+  {
+    "id": 1,
+    "name": "Classic Muscle",
+    "startingPrice": 20000,
+    "attribution": "\"Classic Muscle car\" (https://skfb.ly/6Usqo) by Lexyc16 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."
+  },
+  {
+    "id": 2,
+    "name": "The Porsche",
+    "startingPrice": 80000,
+    "attribution": "\"Cartoon Sports Car\" (https://skfb.ly/6xHtJ) by RCC Design is licensed under Creative Commons Attribution"
+  },
+  {
+    "id": 3,
+    "name": "Speed",
+    "startingPrice": 55000,
+    "attribution": "\"Car\" (https://skfb.ly/6VsUY) by Tech developers is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."
+  },
+  {
+    "id": 4,
+    "name": "Mazda RX-7",
+    "startingPrice": 35000,
+    "attribution": "\"Mazda RX-7 (Car)\" (https://skfb.ly/orn7t) by Anokino is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."
+  },
+  {
+    "id": 5,
+    "name": "Triumph Convertible",
+    "startingPrice": 90000,
+    "attribution": "\"Triumph Spitfire MKIII\" (https://skfb.ly/oCnBI) by Alexios Apokaukos is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."
+  }
+]
