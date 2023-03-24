@@ -1,4 +1,5 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Col, Container, ListGroup, Modal, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -23,22 +24,46 @@ const Img = styled.img`
 `;
 
 const Hero = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <Container style={{ height: '100vh', scrollSnapAlign: 'center' }}>
+    <Container style={{ height: '100vh', scrollSnapAlign: 'center' }} id="home">
       <Row className="h-100 d-flex flex-col align-items-center justify-content-center">
         <Col>
           <Title>Car Auction</Title>
           <p className="lead fs-3 my-3">
             Cool, exotic cars. Low starting bids. All online.
           </p>
-          <a className="btn btn-primary mt-4 fs-4 text-capitalize">
+          <Button
+            className="btn btn-primary mt-4 fs-4 text-capitalize"
+            onClick={handleShow}
+          >
             Learn how it works
-          </a>
+          </Button>
         </Col>
         <Col className="position-relative h-100">
           <Img src="/images/1.png" alt="" className="img-fluid" />
         </Col>
       </Row>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>How it works</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ListGroup as="ol" numbered>
+            <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+            <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+            <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+          </ListGroup>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import About from './components/About';
 import CarList from './components/CarList';
+import Contact from './components/Contact';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 
@@ -23,6 +24,7 @@ function App() {
       <Hero />
       <About />
       <CarList />
+      <Contact />
     </Container>
   );
 }
