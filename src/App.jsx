@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+import About from './components/About';
 import CarList from './components/CarList';
+import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 
 const Container = styled.div`
@@ -18,6 +20,8 @@ function App() {
   return (
     <Container>
       <Navbar />
+      <Hero />
+      <About />
       <CarList />
     </Container>
   );
