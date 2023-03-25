@@ -22,8 +22,8 @@ function App() {
     <Container>
       <Navbar />
       <Hero />
-      <About />
       <CarList />
+      <About />
       <Contact />
     </Container>
   );

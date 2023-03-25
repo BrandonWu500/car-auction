@@ -17,12 +17,12 @@ const Navbar = () => {
           className="text-light fs-3"
         >
           {carItems.map((car) => (
-            <>
+            <div key={car.id}>
               <NavDropdown.Item href={`#car${car.id}`}>
                 {car.name}
               </NavDropdown.Item>
               <NavDropdown.Divider />
-            </>
+            </div>
           ))}
         </NavDropdown>
         <NavbarBS.Brand

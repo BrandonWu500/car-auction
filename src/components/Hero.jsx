@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, Col, Container, ListGroup, Modal, Row } from 'react-bootstrap';
 import styled from 'styled-components';
+import { ArrowDownCircleFill } from 'react-bootstrap-icons';
 
 const Title = styled.h1`
   font-size: 4rem;
@@ -29,7 +30,11 @@ const Hero = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <Container style={{ height: '100vh', scrollSnapAlign: 'center' }} id="home">
+    <Container
+      style={{ height: '100vh', scrollSnapAlign: 'center' }}
+      id="home"
+      className="position-relative"
+    >
       <Row className="h-100 d-flex flex-col align-items-center justify-content-center">
         <Col>
           <Title>Car Auction</Title>
@@ -64,6 +69,13 @@ const Hero = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <div
+        className="position-absolute fs-1 text-center"
+        style={{ bottom: '2rem', left: '0', right: '0', margin: 'auto' }}
+      >
+        <h3>Scroll Down to View the Lineup</h3>
+        <ArrowDownCircleFill id="blink" />
+      </div>
     </Container>
   );
 };

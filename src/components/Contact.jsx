@@ -10,6 +10,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formRef.current) return;
+    setIsSuccess(false);
     setIsSending(true);
 
     /* mimick sending message */

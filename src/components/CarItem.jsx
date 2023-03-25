@@ -1,6 +1,16 @@
 import { OrbitControls, Stage } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { Col, Container, Figure, Row } from 'react-bootstrap';
+import {
+  Button,
+  Col,
+  Container,
+  Figure,
+  Form,
+  InputGroup,
+  Row,
+  Card,
+  ListGroup,
+} from 'react-bootstrap';
 import styled from 'styled-components';
 import formatCurrency from '../utils/formatCurrency';
 import CyberpunkCar from './CyberpunkCar';
@@ -9,6 +19,7 @@ import CartoonSportsCar from './CartoonSportsCar';
 import Car from './Car';
 import Mazda from './Mazda';
 import Triumph from './Triumph';
+import { useState } from 'react';
 
 const StyledFigure = styled(Figure)`
   width: 100%;
@@ -46,18 +57,68 @@ const BackgroundCircle = styled.div`
 `;
 
 const CarItem = ({ car }) => {
+  const [highestBid, setHighestBid] = useState(0);
+  const [currentBid, setCurrentBid] = useState(0);
+  const [bidInput, setBidInput] = useState('');
+
+  const submitBid = (e) => {
+    e.preventDefault();
+    const bidNum = Number(bidInput);
+    setCurrentBid(bidNum);
+
+    if (bidNum > highestBid) {
+      setHighestBid(bidNum);
+    }
+  };
+
   return (
     <Container
       style={{ height: '100vh', scrollSnapAlign: 'center' }}
       className="text-light"
       id={`car${car.id}`}
     >
-      <StyledRow className="h-100" reverse={car.id % 2 === 1}>
+      <StyledRow
+        className="h-100"
+        reverse={car.id % 2 === 1 ? 'true' : undefined}
+      >
         <Col className="d-flex flex-column justify-content-center align-items-center">
           <h2 className="fs-1">{car.name}</h2>
           <p className="lead fs-2">
             Starting Price: {formatCurrency(car.startingPrice)}
           </p>
+          <Form onSubmit={submitBid}>
+            <InputGroup className="mb-3 w-100">
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                aria-label="Amount (to the nearest dollar)"
+                type="number"
+                onChange={(e) => setBidInput(e.target.value)}
+                value={bidInput}
+                placeholder={car.startingPrice.toString()}
+                min={car.startingPrice}
+                step={0.01}
+              />
+              <Button variant="success" type="submit">
+                Submit Bid
+              </Button>
+            </InputGroup>
+          </Form>
+          <Card style={{ width: '18rem' }} className="mt-3">
+            <Card.Header className="text-primary text-uppercase text-center">
+              Current Highest Bid
+            </Card.Header>
+            <Card.Body className="text-dark text-center fs-4">
+              <Card.Text>{formatCurrency(highestBid)}</Card.Text>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: '18rem' }} className="mt-3">
+            <Card.Header className="text-success text-uppercase text-center">
+              Your Current Bid
+            </Card.Header>
+            <Card.Body className="text-dark text-center fs-4">
+              <Card.Text>{formatCurrency(currentBid)}</Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
         <Col className="position-relative h-100">
           <BackgroundCircle></BackgroundCircle>
@@ -75,7 +136,7 @@ const CarItem = ({ car }) => {
             </Canvas>
             <StyledCaption
               className="position-absolute"
-              reverse={car.id % 2 === 1}
+              reverse={car.id % 2 === 1 ? 'true' : undefined}
             >
               {car.attribution}
             </StyledCaption>
